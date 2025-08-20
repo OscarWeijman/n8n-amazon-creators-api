@@ -1,114 +1,143 @@
-# Amazon PA-API Enhanced Node voor n8n
+# Amazon PA-API Enhanced Node for n8n
 
-Een verbeterde n8n node voor de Amazon Product Advertising API (PA-API 5.0) met volledige ondersteuning voor alle Resources en betere beveiliging.
+An enhanced n8n community node for Amazon Product Advertising API (PA-API 5.0) with full Resources support, better security, and comprehensive product data retrieval.
 
-## 🚀 Nieuwe Functies
+[![npm version](https://badge.fury.io/js/n8n-nodes-amazon-paapi-enhanced.svg)](https://badge.fury.io/js/n8n-nodes-amazon-paapi-enhanced)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-### ✅ Volledige Resources Ondersteuning
-In tegenstelling tot de originele `n8n-nodes-amazon-paapi` node, ondersteunt onze enhanced versie **alle** PA-API 5.0 Resources:
+## 🚀 Features
 
-- **ItemInfo.Title** - Producttitel
-- **ItemInfo.Features** - Productkenmerken en bullet points
-- **ItemInfo.ContentInfo** - Content informatie (pagina's, talen, etc.)
-- **ItemInfo.TechnicalInfo** - Technische specificaties (merk, model, etc.)
-- **ItemInfo.ProductInfo** - Productinformatie (kleur, maat, etc.)
-- **Images.Primary** - Primaire productafbeelding
-- **Images.Variants** - Aanvullende productafbeeldingen
-- **Offers.Listings** - Prijs- en beschikbaarheidsinformatie
-- **Offers.Summaries** - Prijssamenvattingen
-- **ParentASIN** - Parent ASIN voor variaties
-- **BrowseNodeInfo** - Categorie-informatie
-- **CustomerReviews** - Klantbeoordelingen
+### ✅ Complete PA-API 5.0 Resources Support
+Unlike the original `n8n-nodes-amazon-paapi` node, our enhanced version supports **ALL** PA-API 5.0 Resources with proper specifications:
 
-### 🔒 Verbeterde Beveiliging
-- Veilige opslag van credentials met password masking
-- Betere error handling en validatie
-- Input sanitization en validatie
+- **ItemInfo.Title** - Product title
+- **ItemInfo.Features** - Product features and bullet points  
+- **ItemInfo.ContentInfo** - Content information (pages, languages, etc.)
+- **ItemInfo.TechnicalInfo** - Technical specifications (brand, model, etc.)
+- **ItemInfo.ProductInfo** - Product information (color, size, etc.)
+- **Images.Primary.Small/Medium/Large** - Primary product images in all sizes
+- **Images.Variants** - Additional product images
+- **Offers.Listings.Price** - Price and availability information
+- **Offers.Listings.Availability.Message** - Stock status
+- **Offers.Listings.Condition** - Item condition (New, Used, etc.)
+- **Offers.Summaries.HighestPrice** - Price summaries
+- **ParentASIN** - Parent ASIN for product variations
+- **BrowseNodeInfo.BrowseNodes** - Category information
+- **CustomerReviews.Count** - Customer review count
+- **CustomerReviews.StarRating** - Customer review ratings
 
-### 🎯 Verbeterde Functionaliteit
-- **Marketplace ondersteuning** - Inclusief Nederland (amazon.nl)
-- **Geavanceerde filtering** - Conditie, merchant, valuta, taal
-- **Gestructureerde output** - Schone, georganiseerde productdata
-- **Batch processing** - Meerdere ASINs tegelijk ophalen
-- **Flexibele configuratie** - Kies precies welke data je wilt
+### 🔒 Enhanced Security
+- Secure credential storage with password masking
+- Input validation and sanitization
+- Better error handling with detailed debugging
+- No hardcoded credentials in source code
 
-## 🔒 Beveiliging
+### 🌍 Extended Marketplace Support
+- **Complete marketplace coverage** including Netherlands (amazon.nl)
+- Support for all major Amazon marketplaces worldwide
+- Proper locale and currency handling
 
-### ⚠️ **BELANGRIJK: Credentials Beveiliging**
+### 🎯 Advanced Features
+- **Structured output processing** - Clean, organized product data
+- **Batch processing** - Retrieve multiple ASINs simultaneously (up to 10)
+- **Flexible configuration** - Choose exactly which data you need
+- **Advanced filtering** - Condition, merchant, currency, language preferences
+- **Comprehensive error handling** - Detailed error messages for debugging
 
-**NOOIT** je echte Amazon PA-API credentials committen naar Git! 
+## 🆚 Comparison with Original Node
 
-- Gebruik altijd placeholder waarden in voorbeelden
-- Roteer je credentials regelmatig
-- Gebruik environment variables voor productie
-- Monitor je API usage in de Amazon Partner Central
+| Feature | Original Node | Enhanced Node |
+|---------|---------------|---------------|
+| Resources Support | ❌ Limited (title only) | ✅ Complete (all PA-API resources) |
+| Price Information | ❌ Missing | ✅ Full (Offers.Listings + Summaries) |
+| Product Images | ❌ Missing | ✅ Complete (Primary + Variants, all sizes) |
+| Netherlands Marketplace | ❌ Missing | ✅ Supported (amazon.nl) |
+| Structured Output | ❌ Raw API response | ✅ Clean, organized data |
+| Error Handling | ❌ Basic | ✅ Comprehensive with validation |
+| Security | ❌ Basic | ✅ Password masking + validation |
+| Resource Specification | ❌ Incorrect format | ✅ Proper PA-API 5.0 format |
 
-### 🔐 **Veilige Credential Management**
+## 🔒 Security
+
+### ⚠️ **IMPORTANT: Credential Security**
+
+**NEVER** commit your real Amazon PA-API credentials to Git!
+
+- Always use placeholder values in examples
+- Rotate your credentials regularly  
+- Use environment variables for production
+- Monitor your API usage in Amazon Partner Central
+
+### 🔐 **Secure Credential Management**
 
 ```bash
-# Voorbeeld .env bestand (NIET committen!)
+# Example .env file (DO NOT commit!)
 AMAZON_ACCESS_KEY=your-access-key-here
 AMAZON_SECRET_KEY=your-secret-key-here  
 AMAZON_PARTNER_TAG=your-partner-tag-here
 ```
 
-## 📦 Installatie
+## 📦 Installation
 
-### Lokale Installatie
+### Via n8n Community Nodes
+1. Go to **Settings** > **Community Nodes** in your n8n instance
+2. Click **Install a community node**
+3. Enter: `n8n-nodes-amazon-paapi-enhanced`
+4. Click **Install**
+
+### Manual Installation
 ```bash
-# Clone het project
-git clone <repository-url>
-cd n8n-amazon-paapi-enhanced
+# For n8n running locally
+npm install n8n-nodes-amazon-paapi-enhanced
 
-# Installeer dependencies
-npm install
-
-# Build de node
-npm run build
-
-# Installeer in je n8n omgeving
-npm install /path/to/n8n-amazon-paapi-enhanced
-```
-
-### Docker Installatie
-```bash
-# Kopieer naar container
-docker cp . n8n:/tmp/n8n-amazon-paapi-enhanced
-
-# Installeer in container
-docker exec n8n sh -c "cd /home/node/.n8n/nodes && npm install /tmp/n8n-amazon-paapi-enhanced"
-
-# Herstart n8n
+# For Docker installations
+docker exec n8n npm install n8n-nodes-amazon-paapi-enhanced
 docker restart n8n
 ```
 
-## 🔧 Configuratie
+### Development Installation
+```bash
+# Clone the repository
+git clone https://github.com/yourusername/n8n-nodes-amazon-paapi-enhanced.git
+cd n8n-nodes-amazon-paapi-enhanced
 
-### 1. Credentials Aanmaken
-Maak nieuwe credentials aan in n8n:
+# Install dependencies
+npm install
+
+# Build the node
+npm run build
+
+# Install in your n8n environment
+npm install /path/to/n8n-amazon-paapi-enhanced
+```
+
+## 🔧 Configuration
+
+### 1. Create Credentials
+Create new credentials in n8n:
 - **Type**: Amazon PA-API Enhanced
-- **Access Key ID**: Je Amazon PA-API Access Key
-- **Secret Access Key**: Je Amazon PA-API Secret Key
-- **Partner Tag**: Je Amazon Associate ID
-- **Marketplace**: Kies je marketplace (bijv. www.amazon.nl)
+- **Access Key ID**: Your Amazon PA-API Access Key
+- **Secret Access Key**: Your Amazon PA-API Secret Key  
+- **Partner Tag**: Your Amazon Associate ID
+- **Marketplace**: Choose your marketplace (e.g., www.amazon.nl)
 
-### 2. Node Configuratie
-1. Voeg de "Amazon PA-API Enhanced" node toe aan je workflow
-2. Selecteer je credentials
-3. Kies de gewenste operatie:
-   - **Get Items**: Haal productinfo op via ASIN(s)
-   - **Search Items**: Zoek producten met keywords
-   - **Get Browse Nodes**: Haal categorie-informatie op
+### 2. Node Configuration
+1. Add the "Amazon PA-API Enhanced" node to your workflow
+2. Select your credentials
+3. Choose the desired operation:
+   - **Get Items**: Retrieve product info by ASIN(s)
+   - **Search Items**: Search products with keywords
+   - **Get Browse Nodes**: Retrieve category information
 
-### 3. Resources Selecteren
-Kies welke productinformatie je wilt ontvangen:
-- Voor **prijzen**: Selecteer "Offers - Listings" en "Offers - Summaries"
-- Voor **afbeeldingen**: Selecteer "Images - Primary" en "Images - Variants"
-- Voor **productdetails**: Selecteer "Item Info - Features" en "Item Info - Technical Info"
+### 3. Select Resources
+Choose which product information to retrieve:
+- For **prices**: Select "Offers - Listings Price" and "Offers - Summaries"
+- For **images**: Select "Images - Primary Medium/Large" and "Images - Variants"
+- For **product details**: Select "Item Info - Features" and "Item Info - Technical Info"
 
-## 📊 Output Structuur
+## 📊 Output Structure
 
-De node retourneert gestructureerde data:
+The node returns structured, clean data:
 
 ```json
 {
@@ -147,32 +176,20 @@ De node retourneert gestructureerde data:
 }
 ```
 
-## 🆚 Vergelijking met Originele Node
+## 🔍 Usage Examples
 
-| Feature | Originele Node | Enhanced Node |
-|---------|---------------|---------------|
-| Resources Support | ❌ Beperkt (alleen titel) | ✅ Volledig (alle PA-API resources) |
-| Prijsinformatie | ❌ Ontbreekt | ✅ Volledig (Offers.Listings + Summaries) |
-| Afbeeldingen | ❌ Ontbreekt | ✅ Volledig (Primary + Variants) |
-| Nederlandse Marketplace | ❌ Ontbreekt | ✅ Ondersteund (amazon.nl) |
-| Gestructureerde Output | ❌ Raw API response | ✅ Schone, georganiseerde data |
-| Error Handling | ❌ Basis | ✅ Uitgebreid met validatie |
-| Security | ❌ Basis | ✅ Password masking + validatie |
-
-## 🔍 Voorbeelden
-
-### Voorbeeld 1: Product Details Ophalen
+### Example 1: Get Product Details
 ```
 Operation: Get Items
 Item IDs: B08N5WRWNW
 Resources: 
 - ItemInfo.Title
 - ItemInfo.Features  
-- Images.Primary
-- Offers.Listings
+- Images.Primary.Medium
+- Offers.Listings.Price
 ```
 
-### Voorbeeld 2: Producten Zoeken
+### Example 2: Search Products
 ```
 Operation: Search Items
 Keywords: wireless headphones
@@ -180,13 +197,23 @@ Search Index: Electronics
 Item Count: 10
 Resources:
 - ItemInfo.Title
-- Images.Primary
-- Offers.Summaries
+- Images.Primary.Medium
+- Offers.Summaries.HighestPrice
+```
+
+### Example 3: Batch Processing
+```
+Operation: Get Items
+Item IDs: B08N5WRWNW,B07XJ8C8F5,B09KMVNY87
+Resources:
+- ItemInfo.Title
+- Offers.Listings.Price
+- Images.Primary.Large
 ```
 
 ## 🛠️ Development
 
-### Project Structuur
+### Project Structure
 ```
 n8n-amazon-paapi-enhanced/
 ├── credentials/
@@ -209,14 +236,80 @@ npm run lint           # ESLint checking
 npm run format         # Prettier formatting
 ```
 
-## 📝 Licentie
+### Testing
+```bash
+# Run tests
+npm test
 
-MIT License - Zie LICENSE bestand voor details.
+# Test specific functionality
+npm run test:api
+```
 
-## 🤝 Bijdragen
+## 🚨 Troubleshooting
 
-Bijdragen zijn welkom! Open een issue of submit een pull request.
+### Common Issues
+
+**"Bad Request" Error**
+- Ensure you're using the correct Resource specifications (e.g., `Images.Primary.Medium` not `Images.Primary`)
+- Verify your credentials are valid and have PA-API access
+- Check that your Partner Tag is active and approved
+
+**Missing Product Data**
+- Select appropriate Resources for the data you need
+- Some products may not have all data available (e.g., prices, reviews)
+- Verify the ASIN exists in your selected marketplace
+
+**Rate Limiting**
+- Amazon PA-API has rate limits (1 request per second for new associates)
+- Implement proper delays between requests
+- Use batch processing to retrieve multiple items efficiently
+
+## 📋 Requirements
+
+- n8n version 0.190.0 or higher
+- Valid Amazon PA-API credentials
+- Active Amazon Associates account
+- Node.js 16+ (for development)
+
+## 🤝 Contributing
+
+Contributions are welcome! Please follow these steps:
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+### Development Guidelines
+- Follow TypeScript best practices
+- Add tests for new functionality
+- Update documentation for new features
+- Ensure security best practices
+- Test with multiple marketplaces
+
+## 📝 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## 📞 Support
 
-Voor vragen of problemen, open een issue in de GitHub repository.
+- **Issues**: [GitHub Issues](https://github.com/yourusername/n8n-nodes-amazon-paapi-enhanced/issues)
+- **Discussions**: [GitHub Discussions](https://github.com/yourusername/n8n-nodes-amazon-paapi-enhanced/discussions)
+- **n8n Community**: [n8n Community Forum](https://community.n8n.io/)
+
+## 🙏 Acknowledgments
+
+- Built on top of the [amazon-paapi](https://www.npmjs.com/package/amazon-paapi) library
+- Inspired by the original n8n-nodes-amazon-paapi community node
+- Thanks to the n8n community for feedback and testing
+
+## 🔗 Related Links
+
+- [Amazon PA-API 5.0 Documentation](https://webservices.amazon.com/paapi5/documentation/)
+- [n8n Community Nodes](https://docs.n8n.io/integrations/community-nodes/)
+- [Amazon Associates Program](https://affiliate-program.amazon.com/)
+
+---
+
+**Made with ❤️ for the n8n community**
