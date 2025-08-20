@@ -1,0 +1,56 @@
+{
+  "name": "n8n-nodes-amazon-paapi-enhanced",
+  "version": "1.0.0",
+  "description": "Enhanced n8n node for Amazon Product Advertising API with full Resources support",
+  "keywords": [
+    "n8n-community-node-package",
+    "amazon",
+    "affiliate",
+    "paapi",
+    "enhanced"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/yourusername/n8n-nodes-amazon-paapi-enhanced",
+  "author": {
+    "name": "Oscar",
+    "email": "your-email@example.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/n8n-nodes-amazon-paapi-enhanced.git"
+  },
+  "main": "dist/nodes/AmazonPAEnhanced/AmazonPAEnhanced.node.js",
+  "scripts": {
+    "build": "tsc && npm run copy:icons",
+    "copy:icons": "cp nodes/AmazonPAEnhanced/amazon.svg dist/nodes/AmazonPAEnhanced/",
+    "dev": "tsc --watch",
+    "format": "prettier nodes credentials --write",
+    "lint": "eslint nodes credentials --ext .ts --fix",
+    "prepublishOnly": "npm run build && npm run lint"
+  },
+  "files": [
+    "dist"
+  ],
+  "n8n": {
+    "n8nNodesApiVersion": 1,
+    "credentials": [
+      "dist/credentials/AmazonPaApiEnhanced.credentials.js"
+    ],
+    "nodes": [
+      "dist/nodes/AmazonPAEnhanced/AmazonPAEnhanced.node.js"
+    ]
+  },
+  "devDependencies": {
+    "@types/node": "^18.0.0",
+    "@typescript-eslint/eslint-plugin": "^5.45.1",
+    "@typescript-eslint/parser": "^5.45.1",
+    "eslint": "^8.10.0",
+    "eslint-plugin-n8n-nodes-base": "^1.16.3",
+    "n8n-workflow": "^1.0.0",
+    "prettier": "^2.7.1",
+    "typescript": "^4.8.4"
+  },
+  "dependencies": {
+    "amazon-paapi": "^1.0.7"
+  }
+}
