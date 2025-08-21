@@ -10,14 +10,14 @@
     "enhanced"
   ],
   "license": "MIT",
-  "homepage": "https://github.com/yourusername/n8n-nodes-amazon-paapi-enhanced",
+  "homepage": "https://github.com/OscarWeijman/n8n-amazon-paapi-enhanced",
   "author": {
-    "name": "Oscar",
-    "email": "your-email@example.com"
+    "name": "Oscar Weijman",
+    "email": "opweijman@yahoo.com"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/yourusername/n8n-nodes-amazon-paapi-enhanced.git"
+    "url": "git+https://github.com/OscarWeijman/n8n-amazon-paapi-enhanced.git"
   },
   "main": "dist/nodes/AmazonPAEnhanced/AmazonPAEnhanced.node.js",
   "scripts": {
@@ -42,8 +42,8 @@
   },
   "devDependencies": {
     "@types/node": "^18.0.0",
-    "@typescript-eslint/eslint-plugin": "^5.45.1",
-    "@typescript-eslint/parser": "^5.45.1",
+    "@typescript-eslint/eslint-plugin": "^5.62.0",
+    "@typescript-eslint/parser": "^5.62.0",
     "eslint": "^8.10.0",
     "eslint-plugin-n8n-nodes-base": "^1.16.3",
     "n8n-workflow": "^1.0.0",

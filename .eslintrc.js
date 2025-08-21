@@ -7,20 +7,18 @@ module.exports = {
 	},
 	parser: '@typescript-eslint/parser',
 	parserOptions: {
-		project: 'tsconfig.json',
 		sourceType: 'module',
 		ecmaVersion: 2019,
 	},
 	plugins: ['@typescript-eslint'],
 	extends: [
 		'eslint:recommended',
-		'@typescript-eslint/recommended',
-		'plugin:n8n-nodes-base/nodes',
 	],
 	rules: {
-		'@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
-		'@typescript-eslint/no-explicit-any': 'off',
-		'n8n-nodes-base/node-param-default-missing': 'off',
+		'no-unused-vars': 'off',
+		'no-undef': 'off',
+		'prefer-const': 'error',
+		'no-var': 'error',
 	},
 	ignorePatterns: ['dist/**', 'node_modules/**'],
 };

@@ -331,7 +331,7 @@ export class AmazonPAEnhanced implements INodeType {
 				const resources = this.getNodeParameter('resources', i) as string[];
 				const additionalFields = this.getNodeParameter('additionalFields', i) as any;
 
-				let requestParameters: any = {};
+				const requestParameters: any = {};
 
 				// Only add Resources if they are selected
 				if (resources && resources.length > 0) {
@@ -358,7 +358,7 @@ export class AmazonPAEnhanced implements INodeType {
 				let responseData: any;
 
 				switch (operation) {
-					case 'getItems':
+					case 'getItems': {
 						const itemIds = this.getNodeParameter('itemIds', i) as string;
 						if (!itemIds.trim()) {
 							throw new NodeOperationError(this.getNode(), 'Item IDs are required');
@@ -397,8 +397,9 @@ export class AmazonPAEnhanced implements INodeType {
 							throw new NodeOperationError(this.getNode(), `Amazon API Error: ${JSON.stringify(apiError.message || apiError)}`);
 						}
 						break;
+					}
 
-					case 'searchItems':
+					case 'searchItems': {
 						const keywords = this.getNodeParameter('keywords', i) as string;
 						const searchIndex = this.getNodeParameter('searchIndex', i) as string;
 						const itemCount = this.getNodeParameter('itemCount', i) as number;
@@ -424,8 +425,9 @@ export class AmazonPAEnhanced implements INodeType {
 							throw new NodeOperationError(this.getNode(), `Amazon API Error: ${apiError.message || apiError}`);
 						}
 						break;
+					}
 
-					case 'getBrowseNodes':
+					case 'getBrowseNodes': {
 						const browseNodeIds = this.getNodeParameter('browseNodeIds', i) as string;
 						if (!browseNodeIds.trim()) {
 							throw new NodeOperationError(this.getNode(), 'Browse Node IDs are required');
@@ -442,6 +444,7 @@ export class AmazonPAEnhanced implements INodeType {
 
 						responseData = await amazonPaapi.GetBrowseNodes(commonParameters, requestParameters);
 						break;
+					}
 
 					default:
 						throw new NodeOperationError(this.getNode(), `Unknown operation: ${operation}`);
