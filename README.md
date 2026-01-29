@@ -38,9 +38,6 @@ npm run build
 If you run n8n globally, you can load the built node with `N8N_CUSTOM_EXTENSIONS`:
 
 ```bash
-export N8N_CUSTOM_EXTENSIONS=/Volumes/HD/Dev/n8n/n8n-amazon-creators-api/dist
+export N8N_CUSTOM_EXTENSIONS=/path/n8n-amazon-creators-api/dist
 n8n start
 ```
-
-Path should point to your local `n8n-amazon-creators-api` folder, e.g.:
-`/Volumes/HD/Dev/n8n/n8n-amazon-creators-api/dist`.
