@@ -1,0 +1,33 @@
+{
+  "searchResult": {
+    "totalResultCount": 1234,
+    "searchURL": "https://www.amazon.nl/s?k=koptelefoon",
+    "items": [
+      {
+        "asin": "B000TEST1",
+        "detailPageURL": "https://www.amazon.nl/dp/B000TEST1",
+        "itemInfo": {
+          "title": { "displayValue": "Test Headphone" },
+          "features": { "displayValues": ["Feature 1", "Feature 2"] }
+        },
+        "images": {
+          "primary": {
+            "medium": { "url": "https://example.com/image.jpg" }
+          }
+        },
+        "offersV2": {
+          "listings": [
+            {
+              "price": {
+                "money": { "amount": 49.99, "currency": "EUR", "displayAmount": "€49,99" }
+              },
+              "availability": { "message": "Op voorraad" },
+              "condition": { "value": "New" },
+              "merchantInfo": { "name": "Amazon" }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

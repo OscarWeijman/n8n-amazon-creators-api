@@ -3,29 +3,42 @@ import {
 	INodeProperties,
 } from 'n8n-workflow';
 
-export class AmazonPaApiEnhanced implements ICredentialType {
-	name = 'amazonPaApiEnhanced';
-	displayName = 'Amazon PA-API Enhanced';
-	documentationUrl = 'https://webservices.amazon.com/paapi5/documentation/';
+export class AmazonCreatorsApi implements ICredentialType {
+	name = 'amazonCreatorsApi';
+	displayName = 'Amazon Creators API';
+	documentationUrl = 'https://affiliate-program.amazon.com/creatorsapi/docs/en-us/introduction';
 	properties: INodeProperties[] = [
 		{
-			displayName: 'Access Key ID',
-			name: 'accessKey',
+			displayName: 'Credential ID',
+			name: 'credentialId',
 			type: 'string',
 			default: '',
 			required: true,
-			description: 'Your Amazon PA-API Access Key ID',
+			description: 'Creators API credential ID',
 		},
 		{
-			displayName: 'Secret Access Key',
-			name: 'secretKey',
+			displayName: 'Credential Secret',
+			name: 'credentialSecret',
 			type: 'string',
 			typeOptions: {
 				password: true,
 			},
 			default: '',
 			required: true,
-			description: 'Your Amazon PA-API Secret Access Key',
+			description: 'Creators API credential secret',
+		},
+		{
+			displayName: 'Credential Version',
+			name: 'credentialVersion',
+			type: 'options',
+			options: [
+				{ name: 'NA (2.1)', value: '2.1' },
+				{ name: 'EU (2.2)', value: '2.2' },
+				{ name: 'FE (2.3)', value: '2.3' },
+			],
+			default: '2.1',
+			required: true,
+			description: 'OAuth2 token version for your region',
 		},
 		{
 			displayName: 'Partner Tag (Associate ID)',
@@ -60,6 +73,14 @@ export class AmazonPaApiEnhanced implements ICredentialType {
 			default: 'www.amazon.com',
 			required: true,
 			description: 'The Amazon marketplace you want to use',
+		},
+		{
+			displayName: 'Custom Auth Endpoint',
+			name: 'authEndpoint',
+			type: 'string',
+			default: '',
+			required: false,
+			description: 'Optional OAuth2 token endpoint override (leave empty for default)',
 		},
 	];
 }

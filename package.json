@@ -1,32 +1,33 @@
 {
-  "name": "n8n-nodes-amazon-paapi-enhanced",
-  "version": "1.0.0",
-  "description": "Enhanced n8n node for Amazon Product Advertising API with full Resources support",
+  "name": "n8n-nodes-amazon-creators-api",
+  "version": "0.1.0",
+  "description": "n8n node for Amazon Creators API with Offers V2 support",
   "keywords": [
     "n8n-community-node-package",
     "amazon",
     "affiliate",
-    "paapi",
-    "enhanced"
+    "creators",
+    "offersv2"
   ],
   "license": "MIT",
-  "homepage": "https://github.com/OscarWeijman/n8n-amazon-paapi-enhanced",
+  "homepage": "https://github.com/OscarWeijman/n8n-amazon-creators-api",
   "author": {
     "name": "Oscar Weijman",
     "email": "opweijman@yahoo.com"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/OscarWeijman/n8n-amazon-paapi-enhanced.git"
+    "url": "git+https://github.com/OscarWeijman/n8n-amazon-creators-api.git"
   },
-  "main": "dist/nodes/AmazonPAEnhanced/AmazonPAEnhanced.node.js",
+  "main": "dist/nodes/AmazonCreatorsApi/AmazonCreatorsApi.node.js",
   "scripts": {
     "build": "tsc && npm run copy:icons",
-    "copy:icons": "cp nodes/AmazonPAEnhanced/amazon.svg dist/nodes/AmazonPAEnhanced/",
+    "copy:icons": "cp nodes/AmazonCreatorsApi/amazon.svg dist/nodes/AmazonCreatorsApi/",
     "dev": "tsc --watch",
     "format": "prettier nodes credentials --write",
     "lint": "eslint nodes credentials --ext .ts --fix",
-    "prepublishOnly": "npm run build && npm run lint"
+    "prepublishOnly": "npm run build && npm run lint",
+    "test": "node --test tests/utils.test.js"
   },
   "files": [
     "dist"
@@ -34,10 +35,10 @@
   "n8n": {
     "n8nNodesApiVersion": 1,
     "credentials": [
-      "dist/credentials/AmazonPaApiEnhanced.credentials.js"
+      "dist/credentials/AmazonCreatorsApi.credentials.js"
     ],
     "nodes": [
-      "dist/nodes/AmazonPAEnhanced/AmazonPAEnhanced.node.js"
+      "dist/nodes/AmazonCreatorsApi/AmazonCreatorsApi.node.js"
     ]
   },
   "devDependencies": {
@@ -51,6 +52,6 @@
     "typescript": "^4.8.4"
   },
   "dependencies": {
-    "amazon-paapi": "^1.0.7"
+    "axios": "^1.6.8"
   }
 }

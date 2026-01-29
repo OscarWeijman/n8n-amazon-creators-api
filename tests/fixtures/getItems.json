@@ -1,0 +1,23 @@
+{
+  "itemsResult": {
+    "items": [
+      {
+        "asin": "B000TEST2",
+        "detailPageURL": "https://www.amazon.nl/dp/B000TEST2",
+        "itemInfo": {
+          "title": { "displayValue": "Test Item" }
+        },
+        "offersV2": {
+          "listings": [
+            {
+              "price": {
+                "money": { "amount": 99.0, "currency": "EUR", "displayAmount": "€99,00" },
+                "savingBasis": { "money": { "amount": 129.0, "currency": "EUR", "displayAmount": "€129,00" } }
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}
