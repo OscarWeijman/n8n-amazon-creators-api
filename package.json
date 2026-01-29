@@ -1,6 +1,6 @@
 {
   "name": "n8n-nodes-amazon-creators-api",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "n8n node for Amazon Creators API with Offers V2 support",
   "keywords": [
     "n8n-community-node-package",
