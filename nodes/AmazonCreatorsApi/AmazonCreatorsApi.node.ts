@@ -418,7 +418,6 @@ export class AmazonCreatorsApi implements INodeType {
 				const retryDelayMs = additionalFields?.retryDelayMs ?? 500;
 
 				let endpoint = '';
-				let responseData: any;
 
 				switch (operation) {
 					case 'getItems': {
@@ -488,7 +487,7 @@ export class AmazonCreatorsApi implements INodeType {
 					debugEnabled,
 				);
 
-				responseData = response.data;
+				const responseData = response.data;
 
 				const nodeInstance = new AmazonCreatorsApi();
 				const processed = nodeInstance.processApiResponse(responseData, operation);
